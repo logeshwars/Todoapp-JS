@@ -19,6 +19,7 @@ let showpop = false;
 let editTodoIndex = -1;
 addbtn.addEventListener("click", () => {
     pptitle.innerHTML = "Create ToDo";
+    crtbtn.innerText = "Create";
     showpopup();
 });
 
@@ -104,6 +105,7 @@ data.map((d, index) => {
 function editTodo(index) {
     editTodoIndex = index;
     pptitle.innerHTML = "Edit ToDo";
+    crtbtn.innerText = "Edit";
     showpopup();
     listName.value = data[index].name;
     listTime.value = data[index].time;
@@ -111,7 +113,7 @@ function editTodo(index) {
 }
 crtbtn.addEventListener('click', () => {
     if (editTodoIndex == -1) {
-        crtbtn.innerText = "Create"
+
         var todo = {
             name: listName.value,
             time: listTime.value,
@@ -119,7 +121,6 @@ crtbtn.addEventListener('click', () => {
         }
         data = [...data, todo];
     } else {
-        crtbtn.innerText = "Edit";
         data[editTodoIndex].name = listName.value;
         data[editTodoIndex].time = listTime.value;
         data[editTodoIndex].desc = listDesc.value
