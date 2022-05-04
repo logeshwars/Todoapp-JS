@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+* {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.navBar {
+    padding: 10px;
+    display: flex;
+    /* background-color: rgb(89, 208, 251);
+    background-image: linear-gradient( 65.9deg, rgba(85, 228, 224, 1) 5.5%, rgba(75, 68, 224, 0.74) 54.2%, rgba(64, 198, 238, 1) 55.2%, rgba(177, 36, 224, 1) 98.4%); */
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.168);
+}
+
+.navBar h1 {
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px black;
+}
+
+#addButton {
+    border: 1px solid silver;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.215);
+    font-size: 2rem;
+    background-color: rgb(58, 192, 249);
+    font-weight: 500;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    bottom: 50px;
+    right: 100px;
+}
+
+#addButton span {
+    margin-top: -6px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#addButton:hover {
+    transform: scale(1.1);
+}
+
+.list {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+    max-width: 320px;
+    max-height: max-content;
+    border-radius: 5px;
+    /* background-image: linear-gradient( 135deg, #90F7EC 10%, #32CCBC 100%); */
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.248);
+}
+
+.container:hover {
+    transition: .4s ease-in-out;
+    box-shadow: 10px 10px 20px rgba(36, 37, 37, 0.147), -10px -10px 20px rgba(0, 0, 0, 0.103);
+}
+
+.container div {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 6fr 2fr 2fr;
+    width: calc(100% - 20px);
+    place-items: center;
+}
+
+.container p {
+    padding: 10px;
+    width: calc(100% - 20px);
+}
+
+.container h3 {
+    padding: 10px;
+    width: calc(100% - 20px);
+    text-align: left;
+}
+
+.deleteButton,
+.editButton {
+    border: none;
+    width: 40px;
+    font-size: 1.2rem;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.263);
+}
+
+.deleteButton:hover,
+.editButton:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: .4s;
+}
+
+.editButton {
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 128, 0);
+}
+
+.deleteButton {
+    background-color: rgb(255, 255, 255);
+    color: rgb(5, 110, 72);
+    margin-right: 15px;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.073);
+}
+
+.popupContainer {
+    background-color: white;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.21);
+    padding: 30px 20px;
+    border-radius: 3px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    gap: 15px;
+}
+
+.inputField {
+    position: relative;
+}
+
+.inputField input[type=text] {
+    width: calc(100% - 20px);
+    border: 0px;
+    background-color: aliceblue;
+    padding: 20px 10px 5px 10px;
+    outline: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.347);
+    border-radius: 3px;
+}
+
+.inputField input[type=text]:focus+.name,
+.inputField input[type=text]:valid+.name {
+    font-size: 12px;
+    top: 3px;
+    font-weight: bold;
+}
+
+.name {
+    position: absolute;
+    pointer-events: none;
+    top: 8px;
+    left: 10px;
+}
+
+.inputField {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputField input[type=time],
+.inputField textarea {
+    background-color: aliceblue;
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-weight: bold;
+    outline: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.347);
+    border-radius: 3px;
+    border: none;
+}
+
+.ct {
+    background-color: steelblue;
+    border: none;
+    outline: none;
+    padding: 10px 0px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.133);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.close {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: red;
+    position: absolute;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.243), -1px -1px 3px rgba(0, 0, 0, 0.106);
+    border-radius: 50%;
+    top: 12px;
+    right: 10px;
+}
+
+.popupContainer h3 {
+    font-size: 1.2rem;
+}
+
+.close:hover {
+    background-color: red;
+    color: white;
+    transition: .1s ease-in-out;
+    cursor: pointer;
+}
+
+.bi-alarm {
+    margin-right: 3px;
+    font-weight: bolder;
+}
+
+@media screen and (max-width:760px) {
+    .container {
+        max-width: 100vw;
+        width: 100vw;
+    }
+    #addButton {
+        right: 20px;
+    }
+}

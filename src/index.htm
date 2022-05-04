@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <script src="../js/index.js" defer></script>
+    <nav class="navBar">
+        <h1>ToDo APP</h1>
+    </nav>
+    <div class="list">
+    </div>
+    <button id="addButton"><span>+</span></button>
+    <div class="popup">
+        <div class="popupContainer">
+            <h3 id="pptitle">Create ToDo</h3>
+            <hr>
+            <div class="inputField">
+                <input type="text" required id="name">
+                <label class="name">Name of the todo</label>
+            </div>
+            <div class="inputField">
+                <label>Time</label>
+                <input type="time" required id="dt">
+            </div>
+            <div class="inputField">
+                <label>Description</label>
+                <textarea placeholder="Enter the description" id="desc"></textarea>
+            </div>
+            <button class="ct">Create</button>
+            <button class="close"><i class="bi bi-x-lg"></i></button>
+        </div>
+    </div>
+</body>
+
+</html>
