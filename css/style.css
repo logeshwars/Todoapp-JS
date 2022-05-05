@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&family=Poppins:wght@500&display=swap');
 * {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -6,11 +6,17 @@
 
 body {
     background-color: whitesmoke;
+    background-image: url('../assets/todo.jpg'), linear-gradient( rgb(251, 209, 209), turquoise);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: luminosity;
 }
 
 .navBar {
-    padding: 10px;
+    padding: 10px 20px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     /* background-color: rgb(89, 208, 251);
     background-image: linear-gradient( 65.9deg, rgba(85, 228, 224, 1) 5.5%, rgba(75, 68, 224, 0.74) 54.2%, rgba(64, 198, 238, 1) 55.2%, rgba(177, 36, 224, 1) 98.4%); */
     background-color: rgb(255, 255, 255);
@@ -18,9 +24,48 @@ body {
 }
 
 .navBar h1 {
-    color: rgb(0, 0, 0);
-    font-size: 2rem;
-    text-shadow: 1px 1px 2px black;
+    color: rgb(255, 166, 0);
+    font-size: 1.5rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bolder;
+    display: flex;
+    gap: 10px;
+    /* background: linear-gradient(to right, rgb(163, 240, 233) 10%, turquoise 90%); */
+    padding: 5px 10px;
+    /* text-shadow: 1px 1px 1px rgb(4, 144, 130); */
+    border-radius: 5px;
+    /* box-shadow: 3px 3px 5px rgba(146, 146, 146, 0.316); */
+    align-items: center;
+    /* text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.209); */
+}
+
+.navBar h1 img {
+    width: 30px;
+}
+
+.navChecked {
+    height: 30px;
+    padding: 5px 10px;
+    border: 1px solid turquoise;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.264);
+}
+
+.navChecked:hover {
+    cursor: pointer;
+    position: relative;
+    top: -2px;
+    background-color: blanchedalmond;
+    transition: .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.navChecked:hover .navChecked::after {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: block;
+    content: "dd";
 }
 
 #addButton {
@@ -32,7 +77,7 @@ body {
     color: white;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.215);
     font-size: 2rem;
-    background-color: rgb(58, 192, 249);
+    background-color: turquoise;
     font-weight: 500;
     position: fixed;
     display: flex;
@@ -131,7 +176,7 @@ body {
     place-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.073);
+    background-color: rgba(0, 0, 0, 0.693);
 }
 
 .popupContainer {
@@ -247,5 +292,9 @@ body {
     .popupContainer {
         padding: 30px 20px;
         width: 300px;
+    }
+    body {
+        background-size: cover;
+        min-height: 100vh;
     }
 }
