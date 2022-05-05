@@ -1,11 +1,20 @@
 const addbtn = document.getElementById("addButton");
 const closebtn = document.querySelector(".close");
-const popup = document.querySelector(".popup");
+const popup = document.querySelectorAll(".popup");
 const listName = document.querySelector("#name");
 const listTime = document.querySelector("#dt");
 const listDesc = document.querySelector("#desc");
 const pptitle = document.querySelector("#pptitle");
 const crtbtn = document.querySelector(".ct");
+const checkedList = document.querySelector(".navChecked");
+const checkedListClose = document.querySelector(".checkedListClose");
+const finishedList = document.querySelector("#checkedList")
+checkedList.addEventListener('click', () => {
+    showpopup(1);
+})
+checkedListClose.addEventListener("click", () => {
+    showpopup(1);
+});
 const randColor = [
     "linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%)",
     "linear-gradient( 135deg, #FEB692 10%, #EA5455 100%)",
@@ -17,28 +26,40 @@ const randColor = [
 ];
 let showpop = false;
 let editTodoIndex = -1;
+
+function showpopup(i) {
+    if (showpop) {
+        showpop = false;
+        popup[i].style.display = "none";
+    } else {
+        popup[i].style.display = "grid";
+        showpop = true;
+    }
+}
 addbtn.addEventListener("click", () => {
     pptitle.innerHTML = "Create ToDo";
     crtbtn.innerText = "Create";
-    showpopup();
+    showpopup(0);
 });
 
 closebtn.addEventListener("click", () => {
-    showpopup();
+    showpopup(0);
 });
 if (localStorage.todo != undefined && localStorage.todo != '[null]')
     var data = JSON.parse(localStorage.todo);
 else
     var data = []
 
-function showpopup() {
-    if (showpop) {
-        showpop = false;
-        popup.style.display = "none";
-    } else {
-        popup.style.display = "grid";
-        showpop = true;
-    }
+
+if (
+    localStorage.finishedtodo != undefined &&
+    localStorage.finishedtodo != "[null]"
+) {
+    var finisheddata = JSON.parse(localStorage.finishedtodo);
+
+} else {
+    var finisheddata = [];
+
 }
 
 function addAndRefresh(d, mode) {
@@ -46,14 +67,21 @@ function addAndRefresh(d, mode) {
     localStorage.setItem("todo", d);
     if (mode == "delete")
         localStorage.todo.length -= 1;
-    console.log(localStorage)
     location.reload();
+}
+
+function addToFinished(d) {
+    d = [...finisheddata, d]
+    d = JSON.stringify(d);
+    localStorage.setItem("finishedtodo", d);
 }
 
 function createEl(tag) {
     return document.createElement(tag);
 }
 const deleteFromList = (i) => {
+
+    addToFinished(data[i])
     delete data[i];
     addAndRefresh(data, "delete");
 };
@@ -100,6 +128,12 @@ data.map((d, index) => {
         container.appendChild(subdiv);
         list.appendChild(container)
     }
+})
+let reversedData = finisheddata.reverse()
+reversedData.map(d => {
+    let li = createEl('li');
+    li.innerHTML = `<img src="assets/check.png">${d.name}`;
+    finishedList.appendChild(li)
 })
 
 function editTodo(index) {
