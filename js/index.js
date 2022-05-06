@@ -147,12 +147,13 @@ function editTodo(index) {
 }
 crtbtn.addEventListener('click', () => {
     if (editTodoIndex == -1) {
-
         var todo = {
             name: listName.value,
             time: listTime.value,
             desc: listDesc.value,
         }
+        if (todo.name.length === 0 && todo.desc.length === 0)
+            return alert("Enter the Valid details");
         data = [...data, todo];
     } else {
         data[editTodoIndex].name = listName.value;
