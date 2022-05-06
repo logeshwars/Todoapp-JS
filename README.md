@@ -6,7 +6,7 @@
 
 ### In this website the user can monitor their daytoday activites with time
 
-### User can create monitor the finished tasks
+### User can  monitor the finished tasks
 
 ### The browser's localstorage is used for database
 
