@@ -1,6 +1,6 @@
 # Todoapp
  
-<a href="https://logeshwars.github.io/Todoapp-JS/" target="_blank">🔗 Vist site</a>
+<a href="https://logeshwars.github.io/Todoapp-JS/" target="_blank">🔗 Viste site</a>
 
 ## Responsive Todo app using Javascript and HTML CSS
 
